@@ -16,6 +16,9 @@ reboot: down up
 logs:
 	docker logs -f localstack
 
+logs-ui:
+	docker logs -f dynamodb-admin
+
 docker-shell:
 	docker exec -ti localstack bash
 

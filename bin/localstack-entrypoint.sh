@@ -8,8 +8,8 @@ printf "Configuring localstack components..."
 # AWS_REGION=us-east-1
 
 # Localstack all ports are by default use 4566.  (All services are hosted on single port)
-readonly LOCALSTACK_S3_URL=http://localstack:4566
-readonly LOCALSTACK_SQS_URL=http://localstack:4566
+readonly LOCALSTACK_S3_URL=http://localstack:5000
+readonly LOCALSTACK_SQS_URL=http://localstack:5000
 
 sleep 5;
 
