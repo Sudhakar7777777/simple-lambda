@@ -1,4 +1,4 @@
-# simple-lambda
+# simple-localstack
 
 Why Use LocalStack?
 The method of temporarily using dummy (or mock, fake, proxy) objects in place of actual ones is a popular way of running tests for applications with external dependencies. Most appropriately, these dummies are called test doubles.
