@@ -37,7 +37,7 @@ I choose to install via Ubuntu docker.  On the outset it might look simple, real
 
 If you are desparate to try this method.  Start from my version should be better than both the articles.
 
-### Running snap on ubuntu docker container
+### 1. Running snap on ubuntu docker container
 
 1. Use the files under commandeer-docker folder.  Dockerfile use ubuntu image and installs snap.
 1. Add this section to the docker container.  This enables mac to connect to snap based ubuntu.  After this step only you'd be allowed to installed apps.
@@ -87,7 +87,7 @@ If you are desparate to try this method.  Start from my version should be better
     ```
 
 
-### Manually install Commandeer on Linux
+### 2. Manually install Commandeer on Linux
 1. Install the commandeer
     ```
     docker exec -ti commandeer-base snap install commandeer
@@ -100,13 +100,28 @@ If you are desparate to try this method.  Start from my version should be better
     ```
     docker exec -ti commandeer-base env | grep DISPLAY
     ```
+
+
+### 3. Enable docker container to display gui app in mac
+1. Need to install 2 applications
+    ```
+    brew install socat
+    brew install xquartz
+    ```
+1. Run the pipe app to run in background
+    ```
+    socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\" &
+    ```
+1. Change XWindows security options.  Run the command.  Go to Xquartz->Preference->Security->Enable option: Allow connections from clients.
+    ```
+    open -a Xquartz
+    ```
 1. Last step, run the commandeer ui tool
     ```
     docker exec -ti commandeer-base commandeer
     ```
 
-
-### Other info
+### 4. Other info
 I also stumbled on another direct link to install via debian package.  Unfortunately these do not work with ubuntu 20.04.  It may work in older instances, did not get a chance to test this.
 ```
 wget https://commander-releases.s3-us-west-1.amazonaws.com/Commandeer_0.3.3_amd64.deb
@@ -116,7 +131,6 @@ dpkg -i Commandeer_1.0.0_amd64.deb -- install failed pkg conflicts; try older ve
 
 
 ## Additional References:
-
 1. https://docs.docker.com/compose/compose-file/compose-file-v3/#compose-documentation
 1. https://docs.getcommandeer.com/blog/latest/commandeer-version-1-0-available-now-on-the-linux-snap-store/
 1. https://www.apress.com/gp/blog/all-blog-posts/developing-for-aws-docker/18515442
