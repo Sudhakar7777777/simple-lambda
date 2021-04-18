@@ -26,19 +26,20 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - ./bin:/docker-entrypoint-initaws.d
 
-  dynamodb-ui:
-    container_name: "dynamodb-admin"
-    image: aaronshaf/dynamodb-admin:latest
-    networks:
-      - localstack-net
-    ports:
-      # - "8000:8000"
-      - "8001:8001"
-    environment: 
-      - DYNAMO_ENDPOINT=http://localstack:5000
-      - AWS_REGION=us-east-1
-      - AWS_ACCESS_KEY_ID=foo
-      - AWS_SECRET_ACCESS_KEY=bar
+  # Enable this option for special dynamodb-admin client.  If you are using commandeer this is not needed.
+  # dynamodb-ui:
+  #   container_name: "dynamodb-admin"
+  #   image: aaronshaf/dynamodb-admin:latest
+  #   networks:
+  #     - localstack-net
+  #   ports:
+  #     # - "8000:8000"
+  #     - "8001:8001"
+  #   environment: 
+  #     - DYNAMO_ENDPOINT=http://localstack:5000
+  #     - AWS_REGION=us-east-1
+  #     - AWS_ACCESS_KEY_ID=foo
+  #     - AWS_SECRET_ACCESS_KEY=bar
   
 networks:
   localstack-net:
