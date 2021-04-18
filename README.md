@@ -60,6 +60,7 @@ Useful links:
 1. https://betterprogramming.pub/dont-be-intimidated-learn-how-to-run-aws-on-your-local-machine-with-localstack-2f3448462254
 1. https://dev.to/goodidea/how-to-fake-aws-locally-with-localstack-27me
 1. https://lobster1234.github.io/2017/04/05/working-with-localstack-command-line/
+1. https://anthony-f-tannous.medium.com/using-commandeer-as-a-front-end-console-for-aws-local-resources-32c26b290d39
 
 Other links:
 1. https://github.com/localstack/localstack#overview

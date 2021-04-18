@@ -129,6 +129,12 @@ wget https://commander-releases.s3-us-west-1.amazonaws.com/Commandeer_1.0.0_amd6
 dpkg -i Commandeer_1.0.0_amd64.deb -- install failed pkg conflicts; try older version of ubuntu
 ```
 
+### 5. Direct packages
+```
+https://commandeer-prd-releases.s3.amazonaws.com/Commandeer_1.8.1_amd64.deb
+https://commandeer-prd-releases.s3.amazonaws.com/Commandeer-1.8.1.AppImage
+https://commandeer-prd-releases.s3.amazonaws.com/Commandeer-1.8.1.dmg
+```
 
 ## Additional References:
 1. https://docs.docker.com/compose/compose-file/compose-file-v3/#compose-documentation
