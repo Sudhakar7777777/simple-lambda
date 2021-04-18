@@ -16,6 +16,9 @@ reboot: down up
 logs:
 	docker logs -f localstack
 
+docker-shell:
+	docker exec -ti localstack bash
+
 docker-clean-images:
 	docker image prune --force --filter "until=24h"
 
@@ -26,5 +29,5 @@ docker-nuke:
 	docker system prune --force --all
 
 ## Run a yarn command inside the container
-%:
-	docker-compose exec ern-processor yarn $@
+# %:
+# 	docker-compose exec ern-processor yarn $@
