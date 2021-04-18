@@ -11,7 +11,8 @@ services:
       - "5000:5000"
     environment:
       - EDGE_PORT=5000 #Default edge port is 4565 for all services, change here and above Port section if you want to customize it
-      - SERVICES=serverless,sqs # serverless = (apigatway,cloudformation,cloudwatch,dynamodb,iam,sts,kinesis,lambda,s3) ; add others like sqs,sns,events on needed basis
+      - SERVICES=serverless,sqs # serverless = (apigatway,cloudformation,cloudwatch,dynamodbstreams,dynamodb,iam,sts,kinesis,lambda,s3)
+      # add others on needed basis ${SERVICES-acm,ec2,es,events,firehose,kms,rds,route53,s3api,secretsmanager,ses,sns,sqs,ssm,stepfunctions}
       - DEBUG=1
       - DATA_DIR=/tmp/localstack/data
       - LAMBDA_EXECUTOR=docker-reuse
@@ -24,6 +25,7 @@ services:
       - "${TMPDIR:-./data}:/tmp/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
       - ./bin:/docker-entrypoint-initaws.d
+
   dynamodb-ui:
     container_name: "dynamodb-admin"
     image: aaronshaf/dynamodb-admin:latest
@@ -37,6 +39,7 @@ services:
       - AWS_REGION=us-east-1
       - AWS_ACCESS_KEY_ID=foo
       - AWS_SECRET_ACCESS_KEY=bar
+  
 networks:
   localstack-net:
     external: false

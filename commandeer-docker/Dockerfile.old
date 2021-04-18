@@ -1,0 +1,19 @@
+FROM snapcore/snapcraft:stable
+
+# RUN apt update && \
+#   apt -y upgrade && \
+#   apt install -y snapd
+
+# RUN snap install commandeer
+
+# COPY service /opt/my/service
+
+# WORKDIR /opt/my/service
+
+# RUN adduser --disabled-password --gecos '' appuser\  
+#   && chown -R appuser:appuser /opt/my/service
+
+# USER appuser
+# EXPOSE 9000
+# ENTRYPOINT ["commandeer"]
+CMD ["bash"]

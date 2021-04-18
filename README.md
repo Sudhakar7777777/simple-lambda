@@ -43,13 +43,20 @@ make down
 make reboot
 ```
 
+## Running Commandeer on Docker
+Read the README file under commandeer-docker folder.
+
 ## Reference:
 Primary:
 1. https://github.com/localstack/localstack/tree/master/doc/developer_guides
 1. https://github.com/localstack/localstack -- Remember other tutorials are outdated always look at latest here.
 1. https://hub.docker.com/r/localstack/localstack
+1. https://github.com/commandeer/open
+1. https://github.com/aaronshaf/dynamodb-admin
+
 
 Useful links:
+1. https://www.apress.com/gp/blog/all-blog-posts/developing-for-aws-docker/18515442
 1. https://betterprogramming.pub/dont-be-intimidated-learn-how-to-run-aws-on-your-local-machine-with-localstack-2f3448462254
 1. https://dev.to/goodidea/how-to-fake-aws-locally-with-localstack-27me
 1. https://lobster1234.github.io/2017/04/05/working-with-localstack-command-line/
