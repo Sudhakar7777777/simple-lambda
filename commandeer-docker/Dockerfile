@@ -1,27 +1,11 @@
 FROM ubuntu:20.04
 
-ENV container docker
-ENV PATH "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
-ENV LANG C.UTF-8
-ENV LC_ALL C.UTF-8
+RUN apt-get update && \
+  apt-get install -y wget && \
+  echo 2 85 | apt-get install -y libgtk-3-0 libnotify4 libnss3 libxss1 libxtst6 xdg-utils libatspi2.0-0 libappindicator3-1 libsecret-1-0
 
-RUN apt-get update &&\
-  DEBIAN_FRONTEND=noninteractive\
-  apt-get install -y fuse snapd snap-confine squashfuse sudo init &&\
-  apt-get clean &&\
-  dpkg-divert --local --rename --add /sbin/udevadm &&\
-  ln -s /bin/true /sbin/udevadm
+RUN wget https://commandeer-prd-releases.s3.amazonaws.com/Commandeer_1.8.1_amd64.deb && \
+  dpkg -i Commandeer_1.8.1_amd64.deb
 
-# ADD snap /usr/local/bin/snap
-
-RUN systemctl enable snapd
-
-VOLUME ["/sys/fs/cgroup"]
-STOPSIGNAL SIGRTMIN+3
-
-# RUN echo "Waiting for snapd to start..." &&\
-#   sleep 100 &&\
-#   snap install commandeer
-# RUN snap list
-
-CMD ["/sbin/init"]
+# ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["commandeer", "--no-sandbox"]
